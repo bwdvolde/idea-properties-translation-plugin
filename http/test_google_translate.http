@@ -1,0 +1,4 @@
+GET https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=nl&dt=t&q=There is a cow on the street
+Accept: application/json
+
+###
