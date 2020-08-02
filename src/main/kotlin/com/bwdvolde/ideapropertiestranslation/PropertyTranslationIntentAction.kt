@@ -1,6 +1,6 @@
-package com.github.bwdvolde.ideapropertiesutil
+package com.bwdvolde.ideapropertiestranslation
 
-import com.github.bwdvolde.ideapropertiesutil.services.translation.TranslationService
+import com.bwdvolde.ideapropertiestranslation.services.translation.TranslationService
 import com.intellij.codeInsight.intention.PsiElementBaseIntentionAction
 import com.intellij.execution.process.ProcessIOExecutorService
 import com.intellij.lang.properties.IProperty

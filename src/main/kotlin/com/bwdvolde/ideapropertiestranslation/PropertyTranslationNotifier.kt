@@ -1,4 +1,4 @@
-package com.github.bwdvolde.ideapropertiesutil
+package com.bwdvolde.ideapropertiestranslation
 
 import com.intellij.notification.NotificationDisplayType
 import com.intellij.notification.NotificationGroup

@@ -1,4 +1,4 @@
-package com.github.bwdvolde.ideapropertiesutil
+package com.bwdvolde.ideapropertiestranslation
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls

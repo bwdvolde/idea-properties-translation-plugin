@@ -1,6 +1,6 @@
-package com.github.bwdvolde.ideapropertiesutil.services.translation.impl
+package com.bwdvolde.ideapropertiestranslation.services.translation.impl
 
-import com.github.bwdvolde.ideapropertiesutil.services.translation.TranslationService
+import com.bwdvolde.ideapropertiestranslation.services.translation.TranslationService
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.intellij.util.Urls

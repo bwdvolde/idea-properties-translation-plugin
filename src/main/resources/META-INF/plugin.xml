@@ -10,11 +10,11 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
-            <className>com.github.bwdvolde.ideapropertiesutil.PropertyTranslationIntentAction</className>
+            <className>com.bwdvolde.ideapropertiestranslation.PropertyTranslationIntentAction</className>
         </intentionAction>
         <applicationService
-                serviceInterface="com.github.bwdvolde.ideapropertiesutil.services.translation.TranslationService"
-                serviceImplementation="com.github.bwdvolde.ideapropertiesutil.services.translation.impl.GoogleTranslationServiceImpl"
+                serviceInterface="com.bwdvolde.ideapropertiestranslation.services.translation.TranslationService"
+                serviceImplementation="com.bwdvolde.ideapropertiestranslation.services.translation.impl.GoogleTranslationServiceImpl"
         />
     </extensions>
 </idea-plugin>

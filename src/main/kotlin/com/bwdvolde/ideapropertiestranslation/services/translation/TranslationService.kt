@@ -1,4 +1,4 @@
-package com.github.bwdvolde.ideapropertiesutil.services.translation
+package com.bwdvolde.ideapropertiestranslation.services.translation
 
 import java.util.*
 
