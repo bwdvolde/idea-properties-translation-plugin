@@ -14,7 +14,7 @@
         </intentionAction>
         <applicationService
                 serviceInterface="com.github.bwdvolde.ideapropertiesutil.services.translation.TranslationService"
-                serviceImplementation="com.github.bwdvolde.ideapropertiesutil.services.translation.impl.DummyTranslationServiceImpl"
+                serviceImplementation="com.github.bwdvolde.ideapropertiesutil.services.translation.impl.GoogleTranslationServiceImpl"
         />
     </extensions>
 </idea-plugin>
