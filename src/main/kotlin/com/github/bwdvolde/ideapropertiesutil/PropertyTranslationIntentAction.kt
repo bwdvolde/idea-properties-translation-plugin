@@ -18,6 +18,7 @@ import java.util.*
 class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
 
     private val translationService = service<TranslationService>()
+    private val notifier = PropertyTranslationNotifier()
 
     override fun startInWriteAction(): Boolean {
         return false
@@ -47,13 +48,19 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
                 .map { it.locale }
 
         ProcessIOExecutorService.INSTANCE.submit {
-            val translations = translationService.translate(propertyValue, localesThatRequireTranslation)
+            try {
+                val translations = translationService.translate(propertyValue, localesThatRequireTranslation)
 
-            ApplicationManager.getApplication().invokeLater {
-                WriteCommandAction.runWriteCommandAction(project) {
-                    addTranslations(propertiesFiles, propertyKey, translations)
-                    PropertyTranslationNotifier().notifySuccess(project, propertyKey, localesThatRequireTranslation)
+                ApplicationManager.getApplication().invokeLater {
+                    WriteCommandAction.runWriteCommandAction(project) {
+                        addTranslations(propertiesFiles, propertyKey, translations)
+                    }
+
+                    notifier.notifySuccess(project, propertyKey, localesThatRequireTranslation)
                 }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                notifier.notifyFailure(project, propertyKey)
             }
         }
 

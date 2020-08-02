@@ -12,10 +12,19 @@ class PropertyTranslationNotifier {
 
     fun notifySuccess(project: Project, propertyKey: String, locales: Collection<Locale>) {
         val content = when (locales.isEmpty()) {
-            true -> MyBundle.message("notifier.empty", propertyKey)
-            else -> MyBundle.message("notifier.notEmpty", propertyKey, locales.joinToString())
+            true -> MyBundle.message("notifier.success.empty", propertyKey)
+            else -> MyBundle.message("notifier.success.notEmpty", propertyKey, locales.joinToString())
         }
-        val notification = NOTIFICATION_GROUP.createNotification(MyBundle.message("notifier.title"), content, NotificationType.INFORMATION)
+        notify(project, content, NotificationType.INFORMATION)
+    }
+
+    fun notifyFailure(project: Project, propertyKey: String) {
+        val content = MyBundle.message("notifier.failure", propertyKey)
+        notify(project, content, NotificationType.ERROR)
+    }
+
+    private fun notify(project: Project, content: String, notificationType: NotificationType) {
+        val notification = NOTIFICATION_GROUP.createNotification(MyBundle.message("notifier.title"), content, notificationType)
         notification.notify(project)
     }
 }

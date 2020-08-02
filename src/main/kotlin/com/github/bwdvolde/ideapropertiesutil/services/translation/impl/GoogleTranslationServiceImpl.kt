@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.intellij.util.Urls
 import com.intellij.util.io.HttpRequests
+import java.lang.RuntimeException
 import java.util.*
 
 class GoogleTranslationServiceImpl : TranslationService {
