@@ -14,7 +14,8 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-Provides option to .properties files to automatically generate missing translations.
+Adds automatic translation support to properties files.
+
 
 **Usage:**
 

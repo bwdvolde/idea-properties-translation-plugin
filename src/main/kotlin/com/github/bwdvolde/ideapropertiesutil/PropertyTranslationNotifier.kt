@@ -10,10 +10,10 @@ private val NOTIFICATION_GROUP = NotificationGroup(MyBundle.message("notifier.ti
 
 class PropertyTranslationNotifier {
 
-    fun notify(project: Project, locales: Collection<Locale>) {
+    fun notifySuccess(project: Project, propertyKey: String, locales: Collection<Locale>) {
         val content = when (locales.isEmpty()) {
-            true -> MyBundle.message("notifier.empty")
-            else -> MyBundle.message("notifier.notEmpty", locales.joinToString())
+            true -> MyBundle.message("notifier.empty", propertyKey)
+            else -> MyBundle.message("notifier.notEmpty", propertyKey, locales.joinToString())
         }
         val notification = NOTIFICATION_GROUP.createNotification(MyBundle.message("notifier.title"), content, NotificationType.INFORMATION)
         notification.notify(project)

@@ -52,7 +52,7 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
             ApplicationManager.getApplication().invokeLater {
                 WriteCommandAction.runWriteCommandAction(project) {
                     addTranslations(propertiesFiles, propertyKey, translations)
-                    PropertyTranslationNotifier().notify(project, localesThatRequireTranslation)
+                    PropertyTranslationNotifier().notifySuccess(project, propertyKey, localesThatRequireTranslation)
                 }
             }
         }
@@ -62,7 +62,8 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
     private fun PropertiesFile.shouldGenerateTranslationForKey(propertyKey: String): Boolean {
         // Default property files doesn't have a locale, can't add a translation for that
         val localeIsUnKnown = locale.language == ""
-        val alreadyHasTranslation = findPropertyByKey(propertyKey) != null
+        // Don't use findProperty here, doesn't seem to work properly
+        val alreadyHasTranslation = namesMap.containsKey(propertyKey)
         return !(localeIsUnKnown || alreadyHasTranslation)
     }
 
