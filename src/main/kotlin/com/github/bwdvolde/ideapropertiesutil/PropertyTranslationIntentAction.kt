@@ -6,9 +6,6 @@ import com.intellij.execution.process.ProcessIOExecutorService
 import com.intellij.lang.properties.IProperty
 import com.intellij.lang.properties.psi.PropertiesFile
 import com.intellij.lang.properties.psi.impl.PropertyKeyImpl
-import com.intellij.notification.NotificationDisplayType
-import com.intellij.notification.NotificationGroup
-import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.components.service
@@ -31,7 +28,7 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
     }
 
     override fun getText(): String {
-        return "Fill in missing translations"
+        return MyBundle.getMessage("intent.action.text")
     }
 
     override fun isAvailable(project: Project, editor: Editor?, element: PsiElement): Boolean {
@@ -43,9 +40,7 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
         val propertyKey = property.key!!
         val propertyValue = property.value!!
 
-        val propertiesFileParent = property.propertiesFile
-
-        val propertiesFiles = propertiesFileParent.resourceBundle.propertiesFiles
+        val propertiesFiles = property.propertiesFile.resourceBundle.propertiesFiles
 
         val localesThatRequireTranslation = propertiesFiles
                 .filter { it.shouldGenerateTranslationForKey(propertyKey) }
@@ -57,7 +52,7 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
             ApplicationManager.getApplication().invokeLater {
                 WriteCommandAction.runWriteCommandAction(project) {
                     addTranslations(propertiesFiles, propertyKey, translations)
-                    displaySuccessfulNotification(project)
+                    PropertyTranslationNotifier().notify(project, localesThatRequireTranslation)
                 }
             }
         }
@@ -79,12 +74,5 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
                 it.addProperty(propertyKey, translation)
             }
         }
-    }
-
-    private val NOTIFICATION_GROUP = NotificationGroup("Property translation", NotificationDisplayType.BALLOON, true)
-
-    private fun displaySuccessfulNotification(project: Project) {
-        val notification = NOTIFICATION_GROUP.createNotification("Property translation", "The translations have been added", NotificationType.INFORMATION)
-        notification.notify(project)
     }
 }
