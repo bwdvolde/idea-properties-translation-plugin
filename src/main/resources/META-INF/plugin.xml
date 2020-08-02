@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.github.bwdvolde.ideapropertiesutil</id>
-    <name>idea-properties-util</name>
+    <id>com.bwdvolde.idea.propertiestranslation</id>
+    <name>Properties Translation</name>
     <vendor>bwdvolde</vendor>
 
     <!-- Product and plugin compatibility requirements -->
