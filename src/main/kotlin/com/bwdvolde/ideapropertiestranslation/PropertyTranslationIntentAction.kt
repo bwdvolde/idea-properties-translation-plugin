@@ -49,11 +49,12 @@ class PropertyTranslationIntentAction(
                 .filter { it.shouldGenerateTranslationForKey(propertyKey) }
                 .map { it.locale }
 
-        ProcessIOExecutorService.INSTANCE.submit {
+        val application = ApplicationManager.getApplication()
+        application.executeOnPooledThread {
             try {
                 val translations = translationService.translate(propertyValue, localesThatRequireTranslation)
 
-                ApplicationManager.getApplication().invokeLater {
+                application.invokeLater {
                     WriteCommandAction.runWriteCommandAction(project) {
                         addTranslations(propertiesFiles, propertyKey, translations)
                     }
