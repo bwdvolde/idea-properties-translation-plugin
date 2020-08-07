@@ -1,5 +1,7 @@
 package com.bwdvolde.ideapropertiestranslation
 
+import com.bwdvolde.ideapropertiestranslation.notifier.PropertyTranslationNotifier
+import com.bwdvolde.ideapropertiestranslation.notifier.impl.DefaultPropertyTranslationNotifier
 import com.bwdvolde.ideapropertiestranslation.services.translation.TranslationService
 import com.intellij.codeInsight.intention.PsiElementBaseIntentionAction
 import com.intellij.execution.process.ProcessIOExecutorService
@@ -15,10 +17,10 @@ import com.intellij.psi.PsiElement
 import java.util.*
 
 
-class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
-
-    private val translationService = service<TranslationService>()
-    private val notifier = PropertyTranslationNotifier()
+class PropertyTranslationIntentAction(
+        private val translationService: TranslationService = service(),
+        private val notifier: PropertyTranslationNotifier = DefaultPropertyTranslationNotifier()
+) : PsiElementBaseIntentionAction() {
 
     override fun startInWriteAction(): Boolean {
         return false
@@ -56,18 +58,18 @@ class PropertyTranslationIntentAction : PsiElementBaseIntentionAction() {
                         addTranslations(propertiesFiles, propertyKey, translations)
                     }
 
-                    notifier.notifySuccess(project, propertyKey, localesThatRequireTranslation)
+                    notifier.notifySuccess(project, localesThatRequireTranslation)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
-                notifier.notifyFailure(project, propertyKey)
+                notifier.notifyFailure(project)
             }
         }
 
     }
 
     private fun PropertiesFile.shouldGenerateTranslationForKey(propertyKey: String): Boolean {
-        // Default property files doesn't have a locale, can't add a translation for that
+        // Default property file doesn't have a locale, can't add a translation for that
         val localeIsUnKnown = locale.language == ""
         // Don't use findProperty here, doesn't seem to work properly
         val alreadyHasTranslation = namesMap.containsKey(propertyKey)

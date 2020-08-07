@@ -1,5 +1,7 @@
-package com.bwdvolde.ideapropertiestranslation
+package com.bwdvolde.ideapropertiestranslation.notifier.impl
 
+import com.bwdvolde.ideapropertiestranslation.MyBundle
+import com.bwdvolde.ideapropertiestranslation.notifier.PropertyTranslationNotifier
 import com.intellij.notification.NotificationDisplayType
 import com.intellij.notification.NotificationGroup
 import com.intellij.notification.NotificationType
@@ -8,18 +10,18 @@ import java.util.*
 
 private val NOTIFICATION_GROUP = NotificationGroup(MyBundle.message("notifier.title"), NotificationDisplayType.BALLOON, true)
 
-class PropertyTranslationNotifier {
+class DefaultPropertyTranslationNotifier : PropertyTranslationNotifier {
 
-    fun notifySuccess(project: Project, propertyKey: String, locales: Collection<Locale>) {
+    override fun notifySuccess(project: Project, locales: Collection<Locale>) {
         val content = when (locales.isEmpty()) {
-            true -> MyBundle.message("notifier.success.empty", propertyKey)
-            else -> MyBundle.message("notifier.success.notEmpty", propertyKey, locales.joinToString())
+            true -> MyBundle.message("notifier.success.empty")
+            else -> MyBundle.message("notifier.success.notEmpty", locales.joinToString())
         }
         notify(project, content, NotificationType.INFORMATION)
     }
 
-    fun notifyFailure(project: Project, propertyKey: String) {
-        val content = MyBundle.message("notifier.failure", propertyKey)
+    override fun notifyFailure(project: Project) {
+        val content = MyBundle.message("notifier.failure")
         notify(project, content, NotificationType.ERROR)
     }
 
