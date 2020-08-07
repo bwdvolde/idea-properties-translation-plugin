@@ -11,6 +11,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
             <className>com.bwdvolde.ideapropertiestranslation.PropertyTranslationIntentAction</className>
+            <category>Properties</category>
         </intentionAction>
         <applicationService
                 serviceInterface="com.bwdvolde.ideapropertiestranslation.services.translation.TranslationService"
