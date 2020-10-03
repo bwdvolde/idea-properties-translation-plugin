@@ -1,43 +1,25 @@
-# idea-properties-util
-
-![Build](https://github.com/bwdvolde/idea-properties-util/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/15163-properties-translation)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/15163-properties-translation)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [x] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml) and [sources package](/src/main/kotlin).
-- [x] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
-- [x] [Publish a plugin manually](https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/publishing_plugin.html) for the first time.
-- [x] Set the Plugin ID in the above README badges.
-- [x] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
-- [x] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+# Properties translation
 
 <!-- Plugin description -->
-Adds automatic translation support to properties files.
+Plugin for intellij IDEA that adds automated translation functionality to property files.
 
-
-**Usage:**
-
-- Place your cursor on a property in the default properties file
-- Press alt+enter
-- Select 'Fill in missing translations'
+More specifically, it adds an intent action when hovering over the key of a property in a property file. When clicked, this action detects which languages are missing translations for that property and then adds missing translations using google translate. 
 <!-- Plugin description end -->
 
-## Installation
+## Usage
 
-- Using IDE built-in plugin system:
-  
-  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "idea-properties-util"</kbd> >
-  <kbd>Install Plugin</kbd>
-  
-- Manually:
+1. Select the property to be translated and open the _intention actions menu_ (Alt+Enter)
+2. Click on the _Fill in missing translations_ intent
+![image](docs/img/usage_0.png)
+3. After the translations have been added, a notification is shown that displays for which languages a translation has been added
+![image](docs/img/usage_1.png)
 
-  Download the [latest release](https://github.com/bwdvolde/idea-properties-util/releases/latest) and install it manually using
-  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+## Limitations
 
+* The plugin is unable to infer the locale of the default property file. As a consequence, it will never add translations to this file.
 
----
-Plugin based on the [IntelliJ Platform Plugin Template][template].
+## Possible improvements
 
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
+* Add support for multiple translation APIs
+* Use language detection to infer locale of default property file
+* Allow multiple properties to be translated at once
