@@ -2,12 +2,10 @@
 
 # idea-properties-util Changelog
 
-## [0.0.1]
-
-- Initial release
-
 ## [Unreleased]
 ### Added
+
+- Icon
 
 ### Changed
 
@@ -18,6 +16,7 @@
 ### Fixed
 
 ### Security
+
 ## [0.0.1]
 
-- Addition of icon
+- Initial release
