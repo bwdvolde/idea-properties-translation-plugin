@@ -7,3 +7,5 @@
 - Initial release
 
 ## [Unreleased]
+
+- Addition of icon
