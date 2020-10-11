@@ -5,10 +5,11 @@
 # Properties translation
 
 <!-- Plugin description -->
-Plugin for intellij IDEA that adds automated translation functionality to property files.
+Plugin for intellij IDEA that adds automated translation functionality to properties files.
 
-More specifically, it adds an intent action when hovering over the key of a property in a property file. When clicked, this action detects which languages are missing translations for that property and then adds missing translations using google translate. 
 <!-- Plugin description end -->
+More specifically, it adds an intent action when hovering over the key of a property in a properties file. When clicked, this action detects which languages are missing translations for that property and then adds missing translations using google translate. 
+
 
 ## Usage
 
@@ -23,10 +24,10 @@ More specifically, it adds an intent action when hovering over the key of a prop
 
 ## Limitations
 
-* The plugin is unable to infer the locale of the default property file. As a consequence, it will never add translations to this file.
+* The plugin is unable to infer the locale of the default properties file. As a consequence, it will never add translations to this file.
 
 ## Possible improvements
 
 * Add support for multiple translation APIs
-* Use language detection to infer locale of default property file
+* Use language detection to infer locale of default properties file
 * Allow multiple properties to be translated at once

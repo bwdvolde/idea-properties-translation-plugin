@@ -70,7 +70,7 @@ class PropertyTranslationIntentAction(
     }
 
     private fun PropertiesFile.shouldGenerateTranslationForKey(propertyKey: String): Boolean {
-        // Default property file doesn't have a locale, can't add a translation for that
+        // Default properties file doesn't have a locale, can't add a translation for that
         val localeIsUnKnown = locale.language == ""
         // Don't use findProperty here, doesn't seem to work properly
         val alreadyHasTranslation = namesMap.containsKey(propertyKey)
