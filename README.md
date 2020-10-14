@@ -1,6 +1,6 @@
 ![Build](https://github.com/bwdvolde/idea-properties-util/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/15163-properties-translation)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/15163-properties-translation)
+[![Version](https://img.shields.io/jetbrains/plugin/v/15163-properties-translation.svg)](https://plugins.jetbrains.com/plugin/15163-properties-translation)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/15163-properties-translation.svg)](https://plugins.jetbrains.com/plugin/15163-properties-translation)
 
 # Properties translation
 
