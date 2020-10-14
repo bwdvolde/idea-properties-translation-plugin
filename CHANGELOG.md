@@ -5,6 +5,18 @@
 ## [Unreleased]
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+## [0.0.2]
+### Added
+
 - Icon
 
 ### Changed
