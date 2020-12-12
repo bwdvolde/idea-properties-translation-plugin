@@ -3,15 +3,8 @@
 # idea-properties-util Changelog
 
 ## [Unreleased]
-### Added
 
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
+- Added IDEA 2020.3 to supported versions
 
 ### Security
 ## [0.0.2]
