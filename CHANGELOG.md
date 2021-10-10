@@ -16,6 +16,10 @@
 ### Security
 ## [0.0.3]
 
+- Added IDEA 2021.* to supported versions
+
+## [0.0.3]
+
 - Added IDEA 2020.3 to supported versions
 
 ## [0.0.2]
