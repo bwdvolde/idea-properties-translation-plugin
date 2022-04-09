@@ -3,6 +3,18 @@
 # idea-properties-util Changelog
 
 ## [Unreleased]
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+## [0.0.3]
 
 - Added IDEA 2021.3 to supported versions
 
