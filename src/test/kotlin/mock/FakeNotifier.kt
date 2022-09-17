@@ -4,7 +4,7 @@ import com.bwdvolde.ideapropertiestranslation.notifier.PropertyTranslationNotifi
 import com.intellij.openapi.project.Project
 import java.util.*
 
-class MockNotifier : PropertyTranslationNotifier {
+class FakeNotifier : PropertyTranslationNotifier {
 
     private var _successNotified = false
     private var _failureNotified = false

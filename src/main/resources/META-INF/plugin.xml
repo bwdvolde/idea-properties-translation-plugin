@@ -10,7 +10,11 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
-            <className>com.bwdvolde.ideapropertiestranslation.PropertyTranslationIntentAction</className>
+            <className>com.bwdvolde.ideapropertiestranslation.SinglePropertyTranslationIntentAction</className>
+            <category>Properties</category>
+        </intentionAction>
+        <intentionAction>
+            <className>com.bwdvolde.ideapropertiestranslation.AllPropertiesTranslationIntentAction</className>
             <category>Properties</category>
         </intentionAction>
         <applicationService

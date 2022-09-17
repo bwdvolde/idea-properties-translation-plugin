@@ -36,8 +36,6 @@ class GoogleTranslationServiceImpl : TranslationService {
     }
 
     override fun translate(text: String, locales: Collection<Locale>): Map<Locale, String> {
-        return locales
-                .map { it to translate(text, it) }
-                .toMap()
+        return locales.associateWith { translate(text, it) }
     }
 }

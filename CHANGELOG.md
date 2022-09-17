@@ -2,6 +2,9 @@
 
 # idea-properties-util Changelog
 
+## [Unreleased] 
+
+- Added new intent action that allows translation of all missing properties in the resource bundle
 ## [1.0.0]
 
 - Added IDEA 2022.2 to supported versions

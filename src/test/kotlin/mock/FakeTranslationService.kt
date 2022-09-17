@@ -4,7 +4,7 @@ import com.bwdvolde.ideapropertiestranslation.services.translation.TranslationSe
 import java.lang.RuntimeException
 import java.util.*
 
-class MockTranslationService: TranslationService {
+class FakeTranslationService: TranslationService {
 
     private var shouldFailOnTranslate: Boolean = false
 
@@ -16,9 +16,7 @@ class MockTranslationService: TranslationService {
     }
 
     override fun translate(text: String, locales: Collection<Locale>): Map<Locale, String> {
-        return locales
-                .map { it to translate(text, it) }
-                .toMap()
+        return locales.associateWith { translate(text, it) }
     }
 
     fun failOnTranslate() {
